@@ -1,0 +1,50 @@
+{
+  "name": "static-directory-loader",
+  "version": "1.0.0",
+  "description": "Copy files into your public directory with webpack",
+  "author": "James K Nelson <james@jamesknelson.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "jamesknelson/static-directory-loader",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "glob": "^7.0.5",
+    "loader-utils": "^1.2.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "del": "^3.0.0",
+    "jest": "^23.6.0",
+    "memory-fs": "^0.4.0",
+    "webpack": "^4.5.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "6.9.0"
+          },
+          "useBuiltIns": "usage"
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "glob"
+  ]
+}
