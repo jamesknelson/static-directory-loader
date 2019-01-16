@@ -10,7 +10,8 @@ module.exports = async function(content) {
   var resourceDir = path.dirname(this.resourcePath);
   var pattern = content.trim();
   var files = glob.sync(pattern, {
-    cwd: resourceDir
+    cwd: resourceDir,
+    nodir: true,
   });
 
   this.addContextDependency(resourceDir)

@@ -19,7 +19,7 @@ describe('loader', () => {
     expect(svgAssets.length).toBe(2)
     expect(txtAssets.length).toBe(0)
 
-    expect(svgAssets[0].name).toBe('logos/navi.svg')
+    expect(svgAssets[0].name).toBe('logos/nested/navi.svg')
   });
 
   it('should work with outputPath option', async () => {
@@ -38,6 +38,6 @@ describe('loader', () => {
 
     const svgAssets = assets.filter(({ name }) => /\.svg$/.test(name))
 
-    expect(svgAssets[0].name).toBe('assets/logos/navi.svg')
+    expect(svgAssets[0].name).toBe('assets/logos/nested/navi.svg')
   });
 });
