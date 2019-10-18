@@ -8,13 +8,19 @@ module.exports = async function(content) {
   const options = loaderUtils.getOptions(this) || {};
   
   var resourceDir = path.dirname(this.resourcePath);
-  var pattern = content.trim();
-  var files = glob.sync(pattern, {
-    cwd: resourceDir,
-    nodir: true,
-  });
+  var patterns = content.split('\n').map(pattern => pattern.trim());
+  var files = []
 
   this.addContextDependency(resourceDir)
+
+  while (patterns.length) {
+    var pattern = patterns.pop()
+    var patternFiles = glob.sync(pattern, {
+      cwd: resourceDir,
+      nodir: true,
+    }) || []
+    files.push(...patternFiles);
+  }
 
   if (!files.length) {
     this.emitWarning('Did not find anything for glob "' + pattern + '" in directory "' + resourceDir + '"');
